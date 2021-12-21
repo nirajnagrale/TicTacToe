@@ -1,7 +1,9 @@
+
+
 let arr = [['','',''],
         ['','',''],
         ['','','']];
-let player = 'O';
+let player = '⭕';
 let Boxes = document.getElementsByClassName('box');
 
 for(let i = 0;i<Boxes.length;i++){
@@ -12,16 +14,16 @@ for(let i = 0;i<Boxes.length;i++){
         let col = this.getAttribute('j');
 
         if(arr[row][col] === ""){
-        if(player === "X"){
-            this.innerText = "X";    
+        if(player === "✖"){
+            this.innerText = "✖";    
             arr[row][col] = player;
-            player = "O";
+            player = "⭕";
             checkDraw();
             checkWinner(parseInt(row),parseInt(col));
         }else{
-            this.innerText = "O";
+            this.innerText = "⭕";
             arr[row][col] = player;
-            player = "X";
+            player = "✖";
             checkDraw();
             checkWinner(parseInt(row),parseInt(col));
         }
@@ -40,6 +42,7 @@ function checkDraw(){
     }
     if(draw){
         alert("Draw");
+        gameRestart();
     }
 }
 function checkWinner(row,col) {  
@@ -53,10 +56,12 @@ function checkWinner(row,col) {
     }
     if(rowFilled){
     if(arr[row][0] === arr[row][1] && arr[row][1] === arr[row][2]){
-        if(arr[row][0] === "X"){
-            alert("X won");
+        if(arr[row][0] === "✖"){
+            alert("✖ won");
+            gameRestart();
         }else{
-            alert("O won");
+            alert("⭕ won");
+            gameRestart();
         }
     }}
     //check col
@@ -69,10 +74,12 @@ function checkWinner(row,col) {
     }
     if(colFilled){
     if(arr[0][col] === arr[1][col] && arr[1][col] === arr[2][col]){
-        if(arr[0][col] === "X"){
-            alert("X won");
+        if(arr[0][col] === "✖"){
+            alert("✖ won");
+            gameRestart();
         }else{
-            alert("O won");
+            alert("⭕ won");
+            gameRestart();
         }
     }
     }  
@@ -86,10 +93,12 @@ function checkWinner(row,col) {
     }
     if(diagFilled){
     if(arr[0][0] === arr[1][1] && arr[1][1] === arr[2][2]){
-        if(arr[0][0] === "X"){
-            alert("X won");
+        if(arr[0][0] === "✖"){
+            alert("✖ won");
+            gameRestart();
         }else{
-            alert("O won");
+            alert("⭕ won");
+            gameRestart();
         }
     }}
     //check diagonal
@@ -102,11 +111,24 @@ function checkWinner(row,col) {
     }
     if(diagFilled2){
     if(arr[0][2] === arr[1][1] && arr[1][1] === arr[2][0]){
-        if(arr[0][2] === "X"){
-            alert("X won");
+        if(arr[0][2] === "✖"){
+            alert("✖ won");
+            gameRestart();
         }else{
-            alert("O won");
+            alert("⭕ won");
+            gameRestart();
         }
     }}
     
+}
+
+function gameRestart(){
+    for(let i = 0;i<3;i++){
+        for(let j = 0;j<3;j++){
+            arr[i][j] = "";
+        }
+    }
+    for(let i = 0;i<Boxes.length;i++){
+        Boxes[i].innerText = "";
+    }
 }
