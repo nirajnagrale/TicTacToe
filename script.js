@@ -10,6 +10,8 @@ for(let i = 0;i<Boxes.length;i++){
         console.log(this.getAttribute('row'));
         let row = this.getAttribute('i');
         let col = this.getAttribute('j');
+
+        if(arr[row][col] === ""){
         if(player === "X"){
             this.innerText = "X";    
             arr[row][col] = player;
@@ -23,6 +25,7 @@ for(let i = 0;i<Boxes.length;i++){
             checkDraw();
             checkWinner(parseInt(row),parseInt(col));
         }
+    }
     });
 }
 
