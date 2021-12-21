@@ -1,0 +1,22 @@
+#game{
+    /* margin-top: 50%; */
+    /* margin-left: 50%; */
+    background-color: rgb(131, 92, 92);
+    width: 300px;
+    height: 300px;
+    padding:0%;
+    margin : 0%;
+}
+.box{
+    padding:0%;
+    margin:0%;
+    /* margin-left: 1%; */
+    display: inline-block;
+    width: 90px;
+    height: 90px;
+    background-color: rgb(189, 153, 173);
+    font-size: x-large;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
